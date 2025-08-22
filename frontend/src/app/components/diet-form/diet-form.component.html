@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>{{ title }}</h1>
+  <h2>Get Your Diet Recommendation</h2>
+
+  <form (ngSubmit)="onSubmit()" #dietForm="ngForm">
+
+    <label>Age:</label>
+    <input type="number" name="age" [(ngModel)]="user.age" required />
+
+    <label>Weight (kg):</label>
+    <input type="number" name="weight" [(ngModel)]="user.weight" required />
+
+    <label>Height (cm):</label>
+    <input type="number" name="height" [(ngModel)]="user.height" required />
+
+    <label>Gender:</label>
+    <select name="gender" [(ngModel)]="user.gender" required>
+      <option value="">Select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <label>Activity Level:</label>
+    <select name="activityLevel" [(ngModel)]="user.activityLevel" required>
+      <option value="">Select</option>
+      <option value="low">Low</option>
+      <option value="moderate">Moderate</option>
+      <option value="high">High</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div *ngIf="dietResponse">
+    <h3>Diet Recommendation:</h3>
+    <p>{{ dietResponse }}</p>
+  </div>
+</div>
